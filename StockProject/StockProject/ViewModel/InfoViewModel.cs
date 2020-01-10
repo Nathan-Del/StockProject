@@ -11,6 +11,9 @@ namespace StockProject.ViewModel
 {
     class InfoViewModel : INotifyPropertyChanged
     {
+
+
+        //Livre en cour de modification
         private static Stock currentStock;
 
         public static Stock CurrentStock
@@ -18,6 +21,7 @@ namespace StockProject.ViewModel
             get { return currentStock; }
             set {
                 currentStock = value;
+                //Pour récupérer l'id du produit en modification
                 UpdateComand.UpdateID = value.Id;
             }
         }
@@ -33,6 +37,83 @@ namespace StockProject.ViewModel
         }
 
 
+
+
+        
+        //Options pour AUGMENTER le stock avec bounton
+        private ICommand more;
+
+        public ICommand More
+        {
+            get
+            {
+                if (more == null)
+                {
+                    more = new MoreComand();
+                }
+                return more;
+            }
+            set { more = value; }
+        }
+
+        public class MoreComand : ICommand
+        {
+            public static string UpdateID;
+
+            public event EventHandler CanExecuteChanged;
+
+
+            public bool CanExecute(object parameter)
+            {
+                return true;
+            }
+
+            public void Execute(object parameter)
+            {
+                CurrentStock.nbrStock += 1;
+            }
+        }
+
+
+        //Options pour DIMINUER le stock avec bounton
+        private ICommand less;
+
+        public ICommand Less
+        {
+            get
+            {
+                if (less == null)
+                {
+                    less = new LessComand();
+                }
+                return less;
+            }
+            set { less = value; }
+        }
+
+        public class LessComand : ICommand
+        {
+            public static string UpdateID;
+
+            public event EventHandler CanExecuteChanged;
+
+
+            public bool CanExecute(object parameter)
+            {
+                return true;
+            }
+
+            public void Execute(object parameter)
+            {
+                CurrentStock.nbrStock -= 1;
+            }
+        }
+
+
+
+
+
+        //Bouton pour Modifier les valeurs d'un produit
         private ICommand update;
 
         public ICommand Update

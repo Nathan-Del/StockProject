@@ -28,14 +28,13 @@ namespace StockProject.DAL
         }
         public static Task<List<Stock>> CreatStock()
         {
-            // Create a request using a URL that can receive a post.   
+            // URL de requête   
             WebRequest request = WebRequest.Create("https://localhost:44368/api/books");
-            // Set the Method property of the request to POST.  
+
+            // Type de méthode
             request.Method = "POST";
 
-            // Create POST data and convert it to a byte array.  
-            //string postData = "This is a test that posts this string to a Web server.";
-
+            //Requête au format JSON
             string json = "{" +
                   "\"Name\":\"" + ViewModel.StockViewModel.BookName + "\"," +
                   "\"CodeBarre\":\"" + ViewModel.StockViewModel.CodeBarre + "\"," +
@@ -84,14 +83,14 @@ namespace StockProject.DAL
 
         public static Task<Stock> DeleteStock(string Id) 
         {
-            // Create a request using a URL that can receive a post.   
             WebRequest request = WebRequest.Create("https://localhost:44368/api/books/" + Id);
-            // Set the Method property of the request to POST.  
+            
             request.Method = "DELETE";
-
             
             request.ContentType = "application/json";
+
             Stream dataStream = request.GetRequestStream();
+
             dataStream.Close();
 
             // Get the response.  
@@ -117,14 +116,10 @@ namespace StockProject.DAL
 
 
         public static Task<List<Stock>> UpdateStock(string Id) 
-        {
-            // Create a request using a URL that can receive a post.   
+        {  
             WebRequest request = WebRequest.Create("https://localhost:44368/api/books/" + Id);
-            // Set the Method property of the request to POST.  
+ 
             request.Method = "PUT";
-
-            // Create POST data and convert it to a byte array.  
-            //string postData = "This is a test that posts this string to a Web server.";
 
             string json = "{" +
                   "\"Id\":\"" + Id + "\"," +
@@ -172,6 +167,9 @@ namespace StockProject.DAL
             return null;
         }
          
+
+        //TEST options de modification du stock dans MainWindows
+
         //public static Task<List<Stock>> UpdateNBR(string Id)
         //{ 
         //    // Create a request using a URL that can receive a post.   

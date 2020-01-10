@@ -25,7 +25,11 @@
         <TextBox Name="nbrStock" HorizontalAlignment="Left" Text="{Binding CurrentStock.nbrStock}" Height="23" Margin="125,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
         <Button Command="{Binding Update}" Content="Update" HorizontalAlignment="Left" Margin="71,299,0,0" VerticalAlignment="Top" Width="94" Height="27" Background="#FFFDDC49" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="420,180,0,0" TextWrapping="Wrap" Text="{Binding CurrentStock.Id}" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Options pour Modifier le Stock avec bouton :" HorizontalAlignment="Left" Margin="329,229,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="397,265,0,0" TextWrapping="Wrap" Text="{Binding CurrentStock.nbrStock}" VerticalAlignment="Top" Width="120"/>
+        <Button Command="{Binding More}" Content="+" HorizontalAlignment="Left" Margin="357,268,0,0" VerticalAlignment="Top" Width="35"/>
+        <Button Command="{Binding Less}" Content="-" HorizontalAlignment="Left" Margin="522,268,0,0" VerticalAlignment="Top" Width="35"/>
 
     </Grid>
 </Window>

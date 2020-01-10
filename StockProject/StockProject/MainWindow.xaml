@@ -22,7 +22,10 @@
             <TextBox IsEnabled="False" Text="{Binding SelectedStock.BookName}" x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="42,36,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" />
         </GroupBox>
 
-        <TextBox IsEnabled="False" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="270,63,0,0" TextWrapping="Wrap" Text="{Binding SelectedStock.BookName}" VerticalAlignment="Top" Width="45"/>
+        <TextBox IsEnabled="False" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="356,63,0,0" TextWrapping="Wrap" Text="{Binding SelectedStock.nbrStock}" VerticalAlignment="Top" Width="45"/>
+
+        <TextBox IsEnabled="False" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="270,63,0,0" TextWrapping="Wrap" Text="{Binding NewStock.nbrStock}" VerticalAlignment="Top" Width="45"/>
+
 
         <Label Content="Id du produit :" Grid.Column="4" HorizontalAlignment="Left" Margin="179,27,0,0" VerticalAlignment="Top" Height="25" Width="86"/>
         <TextBox IsEnabled="False" Text="{Binding SelectedStock.Id}"  HorizontalAlignment="Left" Height="23" Margin="270,29,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="212" Grid.Column="4" />
@@ -47,7 +50,7 @@
         <Label Content="Stock :" Grid.Column="4" HorizontalAlignment="Left" Margin="63,265,0,0" VerticalAlignment="Top" Height="25" Width="77"/>
         <TextBox Name="nbrStock" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="110,267,0,0" TextWrapping="Wrap" Text="{Binding nbrStock}" VerticalAlignment="Top" Width="120"/>
         <Button Command="{Binding Add}" Content="AJOUTER" Grid.Column="4" HorizontalAlignment="Left" Margin="356,270,0,0" VerticalAlignment="Top" Width="75"/>
-
+        
         <Button Command="{Binding NextOptions}" CommandParameter="{Binding SelectedStock}" Content="Next Options    >>" Grid.Column="4" HorizontalAlignment="Left" Margin="474,355,0,0" VerticalAlignment="Top" Width="112" Height="27" Background="#FF9AE8FF" BorderBrush="#FF2D6FB6" Foreground="#FF2D6FB6" FontWeight="Bold"/>
         <Button Command="{Binding MoreStock}" Content="+" Grid.Column="4" HorizontalAlignment="Left" Margin="320,64,0,0" VerticalAlignment="Top" Width="20"/>
         <Button Command="{Binding LessStock}" Content="-" Grid.Column="4" HorizontalAlignment="Left" Margin="245,64,0,0" VerticalAlignment="Top" Width="20"/>

@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using StockProject.DAL;
 using System.Windows.Input;
+using System.Windows;
+using StockProject;
 
 namespace StockProject.ViewModel
 {
@@ -44,6 +46,9 @@ namespace StockProject.ViewModel
                 DeleteComand.productID = value.Id;
                 UpdateNBRComand.StockID = value.Id;
 
+                MoreStockComand.moreInvent = value.nbrStock;
+                LessStockComand.lessInvent = value.nbrStock;
+
                 OnPropertyChange("SelectedStock");
             }
         }
@@ -61,6 +66,7 @@ namespace StockProject.ViewModel
                 OnPropertyChange("LoadedStock");
             }
         }
+
 
 
         //Prendre les valeurs des champs pour ajouter un produit
@@ -115,9 +121,9 @@ namespace StockProject.ViewModel
         }
 
 
-        
 
 
+        //TEST pour gérer le temps réel avec variable et fonction pouvant effectuer un "OnPropertyChange"
 
         //public static int toto = 0;
 
@@ -149,9 +155,12 @@ namespace StockProject.ViewModel
 
         
 
-
+        //Bounton pour Créer un produit
         public class AddComand : ICommand
         {
+
+            //TEST pour gérer le temps réel avec variable et fonction pouvant effectuer un "OnPropertyChange"
+
             //public static string eventCreate = "non";
 
             public event EventHandler CanExecuteChanged;
@@ -178,7 +187,7 @@ namespace StockProject.ViewModel
         }
 
 
-
+        //Bounton pour supprimer un Produit
         private ICommand delete;
 
         public ICommand Delete
@@ -220,6 +229,7 @@ namespace StockProject.ViewModel
 
 
 
+        //Bounton de changement de page vers Info (et options UPDATE)
         private ICommand nextOptions;
 
         public ICommand NextOptions
@@ -253,6 +263,24 @@ namespace StockProject.ViewModel
 
 
 
+
+
+        //TEST champs de modification du stock sur MainWindows
+        public static Stock newStock;
+        public Stock NewStock
+        { 
+            get { return newStock; }
+            set
+            {
+                newStock = value;
+                // Call OnPropertyChanged whenever the property is updated
+                OnPropertyChange("PersonName");
+            }
+        }
+
+
+
+        //Essaie d'AUGMENTATION du stock sur MainWindows
         private ICommand moreStock;
 
         public ICommand MoreStock
@@ -271,6 +299,7 @@ namespace StockProject.ViewModel
 
         public class MoreStockComand : ICommand
         {
+            public static Int64 moreInvent;
             public event EventHandler CanExecuteChanged;
 
             public bool CanExecute(object parameter)
@@ -280,12 +309,14 @@ namespace StockProject.ViewModel
 
             public void Execute(object parameter)
             {
-                
+                moreInvent += 1;
+                newStock.nbrStock = moreInvent;
             }
         }
 
 
-
+        
+        //Essaie de DIMINUTION du stock sur MainWindows
         private ICommand lessStock;
 
         public ICommand LessStock
@@ -301,9 +332,10 @@ namespace StockProject.ViewModel
             set { lessStock = value; }
         }
 
-
+        
         public class LessStockComand : ICommand
         {
+            public static Int64 lessInvent;
             public event EventHandler CanExecuteChanged;
 
             public bool CanExecute(object parameter)
@@ -313,12 +345,14 @@ namespace StockProject.ViewModel
 
             public void Execute(object parameter)
             {
-
+                lessInvent -= 1;
             }
         }
 
 
 
+
+        //Essai de bouton pour modifier la valeur sur MainWindows
         private ICommand updateNBR;
 
         public ICommand UpdateNBR
@@ -372,7 +406,10 @@ namespace StockProject.ViewModel
                         //AddComand.eventCreate = "non";
                         //toto = 0;
                     }
-
+                    //else if (propertyName == "PersonName")
+                    //{
+                    //    LoadStock();
+                    //}
                 }
             }
         }
