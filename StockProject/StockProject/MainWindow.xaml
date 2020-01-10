@@ -14,13 +14,45 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="299*"/>
         </Grid.ColumnDefinitions>
-        <GridSplitter HorizontalAlignment="Left" Height="420" Margin="0,0,-0.4,0" VerticalAlignment="Top" Width="794" Background="#FFF0D0D0"  Grid.ColumnSpan="5"/>
-        <ListBox ItemsSource="{Binding Stocks}" SelectedItem="{Binding SelectedStock}" x:Name="listBox" HorizontalAlignment="Left" Height="374" VerticalAlignment="Top" Width="148" Margin="10,36,0,0" />
-        <GroupBox Header="Stocks" HorizontalAlignment="Left" Height="122" Margin="2,10,0,0" VerticalAlignment="Top" Width="546" Grid.Column="4">
-            <TextBox IsEnabled="False" Text="{Binding SelectedStock.Name}" x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="42,36,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" />
+        <GridSplitter HorizontalAlignment="Left" Height="420" Margin="0,0,-0.4,0" VerticalAlignment="Top" Width="794"  Grid.ColumnSpan="5" Background="#FFC4D5FF"/>
+        <ListBox ItemsSource="{Binding Stock}" SelectedItem="{Binding SelectedStock}" x:Name="listBox" HorizontalAlignment="Left" Height="374" VerticalAlignment="Top" Width="148" Margin="10,36,0,0" SelectionChanged="listBox_SelectionChanged" />
 
+        <Label Content="Nom :" Grid.Column="4" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Height="25" Width="47"/>
+        <GroupBox Header="Produit" HorizontalAlignment="Left" Height="107" Margin="2,10,0,0" VerticalAlignment="Top" Width="584" Grid.Column="4">
+            <TextBox IsEnabled="False" Text="{Binding SelectedStock.BookName}" x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="42,36,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" />
         </GroupBox>
+
+        <TextBox IsEnabled="False" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="270,63,0,0" TextWrapping="Wrap" Text="{Binding SelectedStock.BookName}" VerticalAlignment="Top" Width="45"/>
+
+        <Label Content="Id du produit :" Grid.Column="4" HorizontalAlignment="Left" Margin="179,27,0,0" VerticalAlignment="Top" Height="25" Width="86"/>
+        <TextBox IsEnabled="False" Text="{Binding SelectedStock.Id}"  HorizontalAlignment="Left" Height="23" Margin="270,29,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="212" Grid.Column="4" />
+        <Button Command="{Binding Delete}" Content="SUPPRIMER" CommandParameter="{Binding SelectedStock.Id}" Grid.Column="4" HorizontalAlignment="Left" Margin="499,64,0,0" VerticalAlignment="Top" Width="78"/>
+
+
         <Canvas Grid.Column="4" HorizontalAlignment="Left" Height="101" Margin="256,241,0,0" VerticalAlignment="Top" Width="100"/>
-        
+
+        <Label Content="Ajouter un Livre" Grid.Column="4" HorizontalAlignment="Left" Margin="63,117,0,0" VerticalAlignment="Top" Height="25" Width="111"/>
+        <Label Content="Nom :" Grid.Column="4" HorizontalAlignment="Left" Margin="63,142,0,0" VerticalAlignment="Top" Height="25" Width="47"/>
+        <TextBox Name="BookName" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="110,146,0,0" TextWrapping="Wrap" Text="{Binding BookName}" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Code Barre :" Grid.Column="4" HorizontalAlignment="Left" Margin="63,174,0,0" VerticalAlignment="Top" Height="25" Width="77"/>
+        <TextBox Name="CodeBarre" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="140,176,0,0" TextWrapping="Wrap" Text="{Binding CodeBarre}" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Description :" Grid.Column="4" HorizontalAlignment="Left" Margin="63,204,0,0" VerticalAlignment="Top" Height="25" Width="77"/>
+        <TextBox Name="Description" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="145,206,0,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Prix :" Grid.Column="4" HorizontalAlignment="Left" Margin="63,235,0,0" VerticalAlignment="Top" Height="25" Width="77"/>
+        <TextBox Name="Prix" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="100,237,0,0" TextWrapping="Wrap" Text="{Binding Prix}" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Stock :" Grid.Column="4" HorizontalAlignment="Left" Margin="63,265,0,0" VerticalAlignment="Top" Height="25" Width="77"/>
+        <TextBox Name="nbrStock" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="110,267,0,0" TextWrapping="Wrap" Text="{Binding nbrStock}" VerticalAlignment="Top" Width="120"/>
+        <Button Command="{Binding Add}" Content="AJOUTER" Grid.Column="4" HorizontalAlignment="Left" Margin="356,270,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <Button Command="{Binding NextOptions}" CommandParameter="{Binding SelectedStock}" Content="Next Options    >>" Grid.Column="4" HorizontalAlignment="Left" Margin="474,355,0,0" VerticalAlignment="Top" Width="112" Height="27" Background="#FF9AE8FF" BorderBrush="#FF2D6FB6" Foreground="#FF2D6FB6" FontWeight="Bold"/>
+        <Button Command="{Binding MoreStock}" Content="+" Grid.Column="4" HorizontalAlignment="Left" Margin="320,64,0,0" VerticalAlignment="Top" Width="20"/>
+        <Button Command="{Binding LessStock}" Content="-" Grid.Column="4" HorizontalAlignment="Left" Margin="245,64,0,0" VerticalAlignment="Top" Width="20"/>
+        <Label Content="Inventaire :" Grid.Column="4" HorizontalAlignment="Left" Margin="178,61,0,0" VerticalAlignment="Top" Height="25" Width="67"/>
+        <Button Command="{Binding UpdateNBR}" Content="Mise à jour stock" Grid.Column="4" HorizontalAlignment="Left" Margin="242,91,0,0" VerticalAlignment="Top" Width="98" Background="#FFF5CC84"/>
+
     </Grid>
 </Window>

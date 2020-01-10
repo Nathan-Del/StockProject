@@ -1,0 +1,31 @@
+﻿<Window x:Class="StockProject.Info"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockProject"
+        mc:Ignorable="d"  
+        Title="Info" Height="450" Width="800">
+    <Grid Background="#FFC4D5FF">
+        <Label Content="Modifier le livre :" HorizontalAlignment="Left" Margin="63,66,0,0" VerticalAlignment="Top" Height="32" Width="147" FontWeight="Bold" FontSize="16"/>
+
+        <Label Content="Nom:" HorizontalAlignment="Left" Margin="34,124,0,0" VerticalAlignment="Top" Height="30" Width="45"/>
+        <TextBox Name="BookName" HorizontalAlignment="Left" Text="{Binding CurrentStock.BookName}" Height="23" Margin="79,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Code Barre: " HorizontalAlignment="Left" Margin="34,154,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="CodeBarre" HorizontalAlignment="Left" Text="{Binding CurrentStock.CodeBarre}" Height="23" Margin="109,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Prix:" HorizontalAlignment="Left" Margin="34,184,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="Prix" HorizontalAlignment="Left" Text="{Binding CurrentStock.Price}" Height="23" Margin="71,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Description:" HorizontalAlignment="Left" Margin="34,214,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="Description" HorizontalAlignment="Left" Text="{Binding CurrentStock.Description}" Height="23" Margin="112,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Livre en Stock:" HorizontalAlignment="Left" Margin="34,244,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="nbrStock" HorizontalAlignment="Left" Text="{Binding CurrentStock.nbrStock}" Height="23" Margin="125,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Button Command="{Binding Update}" Content="Update" HorizontalAlignment="Left" Margin="71,299,0,0" VerticalAlignment="Top" Width="94" Height="27" Background="#FFFDDC49" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="420,180,0,0" TextWrapping="Wrap" Text="{Binding CurrentStock.Id}" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

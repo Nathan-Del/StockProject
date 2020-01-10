@@ -17,3 +17,5 @@ C:\Users\Nathan\Desktop\POO\E3\EVAL_Projet\StockProject\StockProject\obj\Debug\S
 C:\Users\Nathan\Desktop\POO\E3\EVAL_Projet\StockProject\StockProject\obj\Debug\StockProject.pdb
 C:\Users\Nathan\Desktop\POO\E3\EVAL_Projet\StockProject\StockProject\bin\Debug\MongoDB.Bson.dll
 C:\Users\Nathan\Desktop\POO\E3\EVAL_Projet\StockProject\StockProject\bin\Debug\MongoDB.Bson.xml
+C:\Users\Nathan\Desktop\POO\E3\EVAL_Projet\StockProject\StockProject\obj\Debug\Info.g.cs
+C:\Users\Nathan\Desktop\POO\E3\EVAL_Projet\StockProject\StockProject\obj\Debug\Info.baml
